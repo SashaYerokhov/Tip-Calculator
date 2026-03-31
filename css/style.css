@@ -1,0 +1,52 @@
+:root {
+  --Green-400: hsl(172, 67%, 45%);
+  ---Green-900: hsl(183, 100%, 15%);
+  --Grey-500: hsl(186, 14%, 43%);
+  --Grey-400: hsl(184, 14%, 56%);
+  --Grey-200: hsl(185, 41%, 84%);
+  --Grey-50: hsl(189, 47%, 97%);
+  --White: hsl(0, 100%, 100%);
+}
+.space-mono-bold {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+html {
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+body {
+    max-width: 1440px;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    font-family: "Space Mono", monospace;
+    font-size: 1.5rem;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+button {
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: inherit;
+    background-color: transparent;
+}
+input {
+    padding-inline: 0;
+}
+.attribution {
+  font-size: 0.6875rem;
+  text-align: center;
+  font-style: italic;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
