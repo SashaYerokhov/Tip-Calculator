@@ -26,7 +26,7 @@
   </head>
   <body>
     <section>
-      <img src="./images/logo.svg" alt="logo">
+      <img src="./images/logo.svg" alt="logo" />
       <!-- <h2>Splitter</h2> -->
       <div class="tips">
         <div class="tips__form">
@@ -44,11 +44,11 @@
             </div>
             <p class="buttons__text">Select Tip %</p>
             <div class="buttons__line">
-              <button class="btn">5%</button>
-              <button class="btn">10%</button>
-              <button class="btn">15%</button>
-              <button class="btn">25%</button>
-              <button class="btn">50%</button>
+              <button type="button" class="btn">5%</button>
+              <button type="button" class="btn">10%</button>
+              <button type="button" class="btn">15%</button>
+              <button type="button" class="btn">25%</button>
+              <button type="button" class="btn">50%</button>
               <input
                 type="text"
                 name="custom"
@@ -60,9 +60,10 @@
             </div>
             <div class="input__person">
               <label for="tipsPerson">Number of People</label>
-              <small class="error">Can't be zero</small>
+              <p class="error">Can't be zero</p>
               <input
                 type="text"
+                class="tips-person invalid"
                 name="tipsPerson"
                 id="tipsPerson"
                 inputmode="numeric"
@@ -75,14 +76,18 @@
           <div class="tips__number-sum">
             <div class="tips__number-amount">
               <p class="tips__number-text">Tip Amount <span>/ person</span></p>
-              <p class="amount-price"><span>&#36;</span>0.00</p>
+              <p class="amount-price">
+                &#36;<span class="amount-price-sum">0.00</span>
+              </p>
             </div>
             <div class="tips__number-total">
               <p class="tips__number-text">Total<span>/ person</span></p>
-              <p class="total-price"><span>&#36;</span>0.00</p>
+              <p class="total-price">
+                &#36;<span class="total-price-sum">0.00</span>
+              </p>
             </div>
           </div>
-          <buttons class="reset">Reset</buttons>
+          <button type="reset" class="reset">Reset</button>
         </div>
       </div>
     </section>

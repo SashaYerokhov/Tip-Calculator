@@ -156,18 +156,27 @@ input[type="text"]:focus-visible {
   background: var(--Grey-50);
   color: var(--Grey-500);
 }
-/* .input__person {
-} */
+.input__person label {
+  display: inline-block;
+}
 
 /* border: 2px solid #e17052;
 background: #f3f9fa;
 */
 .error {
-  display: none;
+  display: inline-block;
   font-weight: 700;
   font-size: 16px;
   padding-inline-start: 60px;
+  margin-block: 0;
   color: #e17457;
+  opacity: 0;
+}
+.input__person .tips-person.invalid {
+  border: 2px solid #e17457;
+}
+.error.invalid {
+  opacity: 1;
 }
 .tips__number {
   width: 413px;
@@ -273,6 +282,10 @@ background: #f3f9fa;
   }
   .btn {
     width: 147px;
+  }
+  .error {
+    font-size: 14px;
+    padding-inline-start: 25px;
   }
   .tips__number {
     width: 327px;
