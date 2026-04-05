@@ -21,7 +21,7 @@ html {
   box-sizing: border-box;
 }
 body {
-  max-width: 1440px;
+  max-width: 90rem;
   width: 100%;
   min-height: 100vh;
   margin: 0 auto;
@@ -48,8 +48,8 @@ section img {
   margin: 163px auto 87px;
 }
 .tips {
-  width: 920px;
-  height: 481px;
+  width: 57.5rem;
+  height: 30.0625rem;
   border-radius: 25px;
   display: flex;
   align-items: center;
@@ -61,7 +61,7 @@ section img {
   padding: 45px 48px;
 }
 .form {
-  width: 379px;
+  width: 23.6875rem;
 }
 
 .input__bill {
@@ -72,7 +72,7 @@ section img {
 label,
 .buttons__text {
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1rem;
   color: var(--Grey-500);
 }
 label {
@@ -83,8 +83,8 @@ input[type="text"] {
   outline: none;
   border: none;
   font-weight: 700;
-  width: 370px;
-  height: 48px;
+  width: 23.125rem;
+  height: 3rem;
   border-radius: 5px;
   background: var(--Grey-50);
 }
@@ -112,7 +112,7 @@ input[type="text"]:focus-visible {
 
 :placeholder-shown {
   font-weight: 700;
-  font-size: 24px;
+  font-size: 1.5rem;
   text-align: right;
   color: #00474b;
 }
@@ -127,8 +127,8 @@ input[type="text"]:focus-visible {
   margin-block-end: 40px;
 }
 .btn {
-  width: 117px;
-  height: 48px;
+  width: 7.3125rem;
+  height: 3rem;
   border-radius: 5px;
   font-weight: 700;
   display: flex;
@@ -140,13 +140,17 @@ input[type="text"]:focus-visible {
     background 450ms ease-in-out,
     color 450ms ease-in;
 }
+.btn.active {
+  background: var(--Green-400);
+  color: var(--Green-900);
+}
 .btn:hover {
   background: var(--Green-400);
   color: var(--Green-900);
 }
 .buttons__line input {
-  width: 117px;
-  height: 48px;
+  width: 7.3125rem;
+  height: 3rem;
   border-radius: 5px;
   padding-inline: 14px;
   background: var(--Grey-50);
@@ -160,13 +164,10 @@ input[type="text"]:focus-visible {
   display: inline-block;
 }
 
-/* border: 2px solid #e17052;
-background: #f3f9fa;
-*/
 .error {
   display: inline-block;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1rem;
   padding-inline-start: 60px;
   margin-block: 0;
   color: #e17457;
@@ -179,8 +180,8 @@ background: #f3f9fa;
   opacity: 1;
 }
 .tips__number {
-  width: 413px;
-  height: 417px;
+  width: 25.8125rem;
+  height: 26.0625rem;
   border-radius: 15px;
   padding: 32px;
   background: var(--Green-900);
@@ -199,29 +200,29 @@ background: #f3f9fa;
   margin-block-end: 41px;
 }
 .tips__number-text {
-  width: 100px;
+  width: 6.25rem;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1rem;
   color: var(--White);
   margin-block: 0;
 }
 .tips__number-text span {
   font-weight: 700;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--Grey-400);
 }
 .amount-price,
 .total-price {
   font-weight: 700;
-  font-size: 48px;
+  font-size: 3rem;
   letter-spacing: -0.02em;
   text-align: right;
   color: var(--Green-400);
   margin-block: 0;
 }
 .reset {
-  width: 333px;
-  height: 48px;
+  width: 20.8125rem;
+  height: 3rem;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -229,7 +230,7 @@ background: #f3f9fa;
   background: var(--Green-400);
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 1.25rem;
   text-align: center;
   color: var(--Green-900);
   cursor: pointer;
@@ -240,8 +241,7 @@ background: #f3f9fa;
   background: #9fe8df;
 }
 .attribution {
-}
-.attribution {
+  margin-block-start: 20px;
   font-size: 0.6875rem;
   text-align: center;
   font-style: italic;
@@ -252,8 +252,8 @@ background: #f3f9fa;
 
 @media (max-width: 950px) {
   .tips {
-    width: 375px;
-    height: 790px;
+    width: 23.4375rem;
+    height: 49.375rem;
     flex-direction: column;
     margin-inline: auto;
   }
@@ -264,13 +264,13 @@ background: #f3f9fa;
     padding: 32px;
   }
   .form {
-    width: 311px;
+    width: 19.4375rem;
   }
   .input__bill {
     margin-block-end: 32px;
   }
   input[type="text"] {
-    width: 311px;
+    width: 19.4375rem;
   }
   .buttons__line {
     grid-template-columns: repeat(2, 1fr);
@@ -278,18 +278,18 @@ background: #f3f9fa;
     margin-block-end: 32px;
   }
   .buttons__line input {
-    width: 147px;
+    width: 9.1875rem;
   }
   .btn {
-    width: 147px;
+    width: 9.1875rem;
   }
   .error {
     font-size: 14px;
     padding-inline-start: 25px;
   }
   .tips__number {
-    width: 327px;
-    height: 257px;
+    width: 20.4375rem;
+    height: 16.0625rem;
     padding: 23px;
   }
   .tips__number-amount {
@@ -297,10 +297,10 @@ background: #f3f9fa;
   }
   .amount-price,
   .total-price {
-    font-size: 32px;
+    font-size: 2rem;
   }
   .reset {
-    width: 281px;
+    width: 17.5625rem;
   }
 }
 

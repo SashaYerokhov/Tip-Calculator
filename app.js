@@ -22,7 +22,8 @@ function calculate() {
   const person = parseFloat(tipsPerson.value);
   // через input - обращаемся к тексту с ошибкой
   // .previousElementSibling: находит ближайший соседний элемент, который стоит прямо перед текущим на том же уровне вложенности.
-  const errorText = tipsPerson.previousElementSibling;
+  // const errorText = tipsPerson.previousElementSibling;
+  const errorText = document.querySelector(".error");
   // console.log(errorText);
 
   // Если количество людей 0 - ошибка
@@ -38,7 +39,7 @@ function calculate() {
   const percent = currentPercent;
 
   if (person > 0) {
-    var totalTip = (bill * (percent / 100)) / person;
+    const totalTip = (bill * (percent / 100)) / person;
     const total = totalTip + bill / person;
 
     amountPrice.textContent = totalTip.toFixed(2);
@@ -65,53 +66,60 @@ btnPercents.forEach((btnPercent) => {
 
     // Вызываем пересчет
     calculate();
+
+    // Активное состояние кнопки (визуальный фидбек)
+    btnPercents.forEach((btn) => btn.classList.remove("active"));
+    btnPercent.classList.add("active");
   });
 });
 
-// Обработчик для поля custom (ручной ввод процента)
+// // Обработчик для поля custom (ручной ввод процента)
+// custom.addEventListener("input", () => {
+//   currentPercent = parseFloat(custom.value) || 0;
+//   calculate();
+// });
+
+// Ручной ввод процента с debounce
+let customTimeout;
 custom.addEventListener("input", () => {
-  currentPercent = parseFloat(custom.value) || 0;
-  calculate();
+  clearTimeout(customTimeout);
+  customTimeout = setTimeout(() => {
+    let value = parseFloat(custom.value);
+    if (isNaN(value)) value = 0;
+    if (value > 100) value = 100; // Ограничение
+    currentPercent = Math.min(value, 100);
+    custom.value = currentPercent;
+    calculate();
+  }, 300);
 });
+
+// Основные обработчики с debounce для производительности
+let calculateTimeout;
+function debouncedCalculate() {
+  clearTimeout(calculateTimeout);
+  calculateTimeout = setTimeout(calculate, 100);
+}
 
 // Основные обработчики
 tipsBill.addEventListener("input", calculate);
 tipsPerson.addEventListener("input", calculate);
 
+// Сброс без перезагрузки страницы
 resetBtn.addEventListener("click", () => {
-  //   continueBtn.addEventListener("click", () => location.reload());
-  location.reload();
+  tipsBill.value = "";
+  tipsPerson.value = "";
+  custom.value = "";
+  currentPercent = 0;
+
+  // Сброс активного состояния кнопок
+  btnPercents.forEach((btn) => btn.classList.remove("active"));
+
+  // Сброс ошибки
+  tipsPerson.classList.remove("invalid");
+  document.querySelector(".error")?.classList.remove("invalid");
 
   calculate();
 });
 
 // Первоначальный расчет (если нужно)
 calculate();
-
-
-/**
-Формула рассчета чаевых 
-
-1-я сумма - (Общая сумма * (проценты / 100)) / разделить на количество людей
-
-2-я сумма 1-я сумма добавить + общую сумму / разделить на количество людей
-
-
-Обработчик событий: Использование addEventListener('input', ...) гарантирует, что вычисления будут выполняться в режиме реального времени по мере ввода данных пользователем в поля.
-Проверка: Поскольку нет кнопки для запуска проверки, используйте проверки || 0 или isNaN(), чтобы калькулятор не отображал NaN, если пользователь очистит поле ввода.
-Форматирование: Используйте .toFixed(2), чтобы результаты всегда выглядели как валюта (например, $10,50 вместо $10,5).
- * 
- * Событие input в JavaScript срабатывает моментально при любом изменении значения текстового поля (<input type="text">, <textarea>), включая вставку мышью, автозаполнение или диктовку. В отличие от change, оно не ждет потери фокуса, что идеально для валидации «на лету» или подсчета символов. 
-Основные характеристики
-Моментальное срабатывание: Вызывается сразу после изменения значения.
-Сфера применения: Работает для <input> (text, number, password и др.), <textarea> и при contenteditable.
-Отличие от change: change срабатывает, когда элемент теряет фокус (после изменения), а input — при каждом нажатии клавиши или вставке.
-
-const input = document.querySelector('input');
-input.addEventListener('input', (event) => {
-  console.log('Текущее значение:', event.target.value);
-});
-
- */
-
-

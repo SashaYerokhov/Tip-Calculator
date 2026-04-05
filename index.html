@@ -27,7 +27,6 @@
   <body>
     <section>
       <img src="./images/logo.svg" alt="logo" />
-      <!-- <h2>Splitter</h2> -->
       <div class="tips">
         <div class="tips__form">
           <form action="#" class="form" id="form" novalidate>
@@ -38,35 +37,48 @@
                 name="tipsBill"
                 id="tipsBill"
                 inputmode="numeric"
+                step="0.01"
+                min="0"
                 placeholder="0"
-                required
               />
             </div>
             <p class="buttons__text">Select Tip %</p>
             <div class="buttons__line">
-              <button type="button" class="btn">5%</button>
-              <button type="button" class="btn">10%</button>
-              <button type="button" class="btn">15%</button>
-              <button type="button" class="btn">25%</button>
-              <button type="button" class="btn">50%</button>
+              <button type="button" class="btn" aria-label="5 percent tip">
+                5%
+              </button>
+              <button type="button" class="btn" aria-label="10 percent tip">
+                10%
+              </button>
+              <button type="button" class="btn" aria-label="15 percent tip">
+                15%
+              </button>
+              <button type="button" class="btn" aria-label="25 percent tip">
+                25%
+              </button>
+              <button type="button" class="btn" aria-label="50 percent tip">
+                50%
+              </button>
               <input
                 type="text"
                 name="custom"
                 id="custom"
                 inputmode="numeric"
                 placeholder="Custom"
-                required
+                aria-label="Number of people"
               />
             </div>
             <div class="input__person">
               <label for="tipsPerson">Number of People</label>
               <p class="error">Can't be zero</p>
+              <!-- Для количества персон -->
               <input
                 type="text"
-                class="tips-person invalid"
+                class="tips-person"
                 name="tipsPerson"
                 id="tipsPerson"
                 inputmode="numeric"
+                aria-label="Number of people"
                 placeholder="0"
               />
             </div>
